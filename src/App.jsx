@@ -62,10 +62,12 @@ function App() {
   };
 
   useEffect(() => {
+    setLoading(true)
     // fetch books from an API
     fetch("https://ihadis.vercel.app/api/book/")
       .then((response) => response.json())
       .then((data) => {
+        setLoading(false)
         const genBooks = data.data.books.map((book) => {
           return {
             id: book.id,
@@ -81,13 +83,13 @@ function App() {
   return (
     <div className="relative font-display">
       <div
-        className="p-4 space-y-6"
+        className="p-4 space-y-3"
       >
-      <img src={logo} className="mx-auto w-24" />
+      <img src={logo} className="mx-auto w-20" />
       <h2 className="text-center text-3xl font-bold text-green-600">
         আল হাদিস বাংলা বট
       </h2>
-      <h2 className="p-2 bg-green-50 text-green-500 rounded-md">
+      <h2 className="p-2 bg-green-50 text-green-500 border border-green-200 rounded-md">
         রেফারেন্স হাদিস খুঁজুন খুব সহজেই। হাদিসটি সঠিক কিনা যাচাই করে ফেলুন
       </h2>
       <div className="space-y-4">
@@ -95,7 +97,7 @@ function App() {
           <label>হাদিসের বই বাছাই করুনঃ</label>
           <select
             onChange={(e) => setBook_id(e.target.value)}
-            className="w-full p-2 border rounded"
+            className="w-full p-2 border rounded focus:outline-blue-500" 
           >
             {books.map((book) => (
               <option key={book.id} value={book.id}>
@@ -109,7 +111,7 @@ function App() {
           <input 
           onChange={(e) => setHadith_id(e.target.value)}
           type="number" 
-          className="w-full p-2 border rounded" 
+          className="w-full p-2 border rounded focus:outline-blue-500" 
           />
         </div>
         <button

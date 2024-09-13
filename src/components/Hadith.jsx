@@ -8,7 +8,7 @@ export default function Hadith({ setFind, data }) {
       <div className="relative h-[calc(100vh-50px)] w-[calc(100%-16px)] p-4 space-y-3 bg-white rounded-md overflow-y-auto">
         <button
           onClick={() => setFind(false)}
-          className="absolute right-5 px-4 py-2 bg-red-50 text-red-500 rounded-md"
+          className="absolute top-0 right-0 px-4 py-2 bg-red-50 text-red-500 rounded-bl-xl"
         >
           X
         </button>
